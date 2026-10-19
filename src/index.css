@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #08120e;
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-heading {
+  font-family: 'Cinzel', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050c09;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3f30;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2e624b;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(12, 26, 20, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-gold {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.08), rgba(245, 158, 11, 0.02));
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.glass-admin {
+  background: rgba(8, 18, 14, 0.95);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(52, 211, 153, 0.18);
+}
+
+/* Animated Shimmer & Mist */
+@keyframes mistDrift {
+  0% { transform: translate3d(0, 0, 0); opacity: 0.35; }
+  50% { transform: translate3d(40px, -15px, 0); opacity: 0.65; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0.35; }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.45); }
+}
+
+.animate-mist {
+  animation: mistDrift 14s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #fef08a 0%, #ffffff 50%, #fef08a 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: goldShimmer 6s linear infinite;
+}
+
+/* Floating Mist particle styling */
+.mist-particle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  opacity: 0.25;
+  background: radial-gradient(circle, rgba(167, 243, 208, 0.35) 0%, rgba(52, 211, 153, 0) 70%);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+  }
+  header, footer, nav, .mist-particle, #villas, #estate-map, #experiences, #spa, #dining, #guide {
+    display: none !important;
+  }
+  .glass-panel, .glass-card {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #111827 !important;
+  }
+  #printable-voucher {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: 2px solid #064e3b !important;
+    display: block !important;
+  }
+}
