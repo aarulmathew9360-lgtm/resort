@@ -324,6 +324,19 @@ const Navbar = () => {
                   <Crown className="w-4 h-4" />
                   <span>Admin Operations Hub</span>
                 </button>
+
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    // Trigger install event or alert
+                    const event = new CustomEvent('triggerPwaInstall');
+                    window.dispatchEvent(event);
+                  }}
+                  className="flex items-center gap-2 text-emerald-300 py-2.5 font-bold text-xs uppercase tracking-wider"
+                >
+                  <span className="text-base">📲</span>
+                  <span>{lang === 'ta' ? 'மொபைல் ஆப் இன்ஸ்டால்' : 'Install Mobile App'}</span>
+                </button>
               </div>
             </div>
 

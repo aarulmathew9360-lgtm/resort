@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="50%" stop-color="#062e24" />
+      <stop offset="100%" stop-color="#02140f" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="mistGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background with rounded squircles -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="#34d399" stroke-width="4" stroke-opacity="0.3" />
+
+  <!-- Mist Glow Base -->
+  <ellipse cx="256" cy="400" rx="220" ry="80" fill="url(#mistGrad)" />
+
+  <!-- Mountain Peak 1 (Back) -->
+  <path d="M120 380 L230 190 L340 380 Z" fill="#047857" opacity="0.6" />
+
+  <!-- Mountain Peak 2 (Main Doddabetta Ridge) -->
+  <path d="M200 380 L320 150 L440 380 Z" fill="#059669" opacity="0.8" />
+  <path d="M320 150 L355 210 L320 230 L290 200 Z" fill="#ecfdf5" opacity="0.8" />
+
+  <!-- Front Mountain with Gold Trim -->
+  <path d="M60 400 L210 210 L360 400 Z" fill="url(#bgGrad)" stroke="#10b981" stroke-width="3" />
+  <path d="M210 210 L245 270 L210 290 L180 260 Z" fill="#ffffff" />
+
+  <!-- Pine Tree Silhouettes -->
+  <!-- Tree 1 -->
+  <path d="M160 410 L160 380 L140 380 L160 350 L145 350 L160 320 L160 300 L160 320 L175 350 L160 350 L180 380 L160 380 Z" fill="#34d399" />
+  <!-- Tree 2 -->
+  <path d="M260 410 L260 370 L240 370 L260 335 L245 335 L260 300 L260 280 L260 300 L275 335 L260 335 L280 370 L260 370 Z" fill="#6ee7b7" />
+  <!-- Tree 3 -->
+  <path d="M350 410 L350 385 L335 385 L350 360 L338 360 L350 330 L350 315 L350 330 L362 360 L350 360 L365 385 L350 385 Z" fill="#34d399" />
+
+  <!-- Luxury Gold Star / Mountain Sun -->
+  <circle cx="390" cy="130" r="28" fill="url(#goldGrad)" />
+  <polygon points="390,85 397,118 430,118 403,138 413,170 390,150 367,170 377,138 350,118 383,118" fill="url(#goldGrad)" opacity="0.9" />
+
+  <!-- Wordmark 'NM' luxury monogram -->
+  <text x="256" y="470" font-family="'Cinzel', serif, Georgia" font-size="34" font-weight="bold" letter-spacing="8" fill="#fef08a" text-anchor="middle">NILGIRI MIST</text>
+</svg>

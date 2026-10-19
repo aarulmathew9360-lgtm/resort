@@ -1,0 +1,63 @@
+{
+  "name": "Nilgiri Mist | Luxury Mountain Resort & Spa, Ooty",
+  "short_name": "Nilgiri Mist",
+  "description": "7,400 ft altitude luxury mountain chalets with private fireplaces, heated jacuzzis, and 24/7 AI Butler in Ooty.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#08120e",
+  "theme_color": "#064e3b",
+  "orientation": "any",
+  "categories": ["travel", "hospitality", "lifestyle"],
+  "icons": [
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Reserve Luxury Villa",
+      "short_name": "Villas",
+      "description": "Book a private chalet with fireplace & jacuzzi",
+      "url": "/#villas",
+      "icons": [{ "src": "/pwa-icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Ask Nilgiri AI Butler",
+      "short_name": "AI Butler",
+      "description": "Instant 24/7 mountain concierge & itinerary planner",
+      "url": "/#ai",
+      "icons": [{ "src": "/pwa-icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "In-Villa Dining Tray",
+      "short_name": "Dining",
+      "description": "Order steaming Ooty hot cocoa and Badaga mutton chukka",
+      "url": "/#dining",
+      "icons": [{ "src": "/pwa-icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Admin Operations Hub",
+      "short_name": "Admin Hub",
+      "description": "General Manager & Butler Task Desk",
+      "url": "/#admin",
+      "icons": [{ "src": "/pwa-icon.svg", "sizes": "192x192" }]
+    }
+  ]
+}
