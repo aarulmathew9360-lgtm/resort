@@ -53,6 +53,7 @@ const Navbar = () => {
 
   const navLinks = [
     { label: t.navRooms, href: '#villas' },
+    { label: t.navPackage || 'Combo Package', href: '#package-builder' },
     { label: t.navEstate, href: '#estate-map' },
     { label: t.navExperiences, href: '#experiences' },
     { label: t.navSpa, href: '#spa' },

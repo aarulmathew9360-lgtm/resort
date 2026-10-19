@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BookingBar from './components/BookingBar';
 import RoomsSection from './components/RoomsSection';
+import PackageBuilder from './components/PackageBuilder';
 import RoomModal from './components/RoomModal';
 import ResortMap from './components/ResortMap';
 import ExperiencesSection from './components/ExperiencesSection';
@@ -68,6 +69,9 @@ function MainResortApp() {
 
         {/* Luxury Villas & Suites Showcase */}
         <RoomsSection />
+
+        {/* Build Your Nilgiri Stay - Custom Holiday Combo Package Builder */}
+        <PackageBuilder />
 
         {/* Interactive 45-Acre Estate Map & Navigator */}
         <ResortMap />
