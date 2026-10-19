@@ -19,6 +19,7 @@ import NotificationToast from './components/NotificationToast';
 import AuthModal from './components/AuthModal';
 import AdminDashboard from './components/AdminDashboard';
 import InvoiceModal from './components/InvoiceModal';
+import AiConciergeModal from './components/AiConciergeModal';
 import './App.css';
 
 function MainResortApp() {
@@ -97,6 +98,7 @@ function MainResortApp() {
       <BookingCheckoutModal />
       <DiningCartDrawer />
       <InvoiceModal />
+      <AiConciergeModal />
       <AuthModal />
       <NotificationToast />
     </div>
