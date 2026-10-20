@@ -3,6 +3,7 @@ import { useResort } from '../context/ResortContext';
 import { ADD_ONS } from '../data/resortData';
 import confetti from 'canvas-confetti';
 import { printResortBill } from '../utils/printBill';
+import UpiPaymentTerminal from './UpiPaymentTerminal';
 import { 
   X, 
   Check, 
@@ -30,7 +31,8 @@ const BookingCheckoutModal = () => {
     lang, 
     addBooking, 
     showToast,
-    setSelectedInvoiceBooking
+    setSelectedInvoiceBooking,
+    playPaymentSuccessSound
   } = useResort();
 
   const [step, setStep] = useState(1); // 1: Addons, 2: Guest Details, 3: Payment, 4: Confirmed Voucher
@@ -122,6 +124,7 @@ const BookingCheckoutModal = () => {
     setConfirmedData(bookingObject);
     addBooking(bookingObject);
     setStep(4);
+    playPaymentSuccessSound();
 
     // Burst festive confetti
     try {
@@ -460,18 +463,12 @@ const BookingCheckoutModal = () => {
                 </button>
               </div>
 
-              {/* UPI simulation box */}
+              {/* UPI Real-Time Terminal */}
               {paymentMethod === 'upi' && (
-                <div className="p-4 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-between">
-                  <div className="space-y-1">
-                    <span className="text-xs text-stone-300 font-medium">Virtual Payment Address</span>
-                    <div className="font-mono text-emerald-400 text-sm font-semibold">nilgirimist.resort@icici</div>
-                    <p className="text-[10px] text-stone-500">Scan QR or auto-approve in your UPI app upon submission.</p>
-                  </div>
-                  <div className="w-16 h-16 bg-white p-1 rounded-xl shrink-0 flex items-center justify-center">
-                    <QrCode className="w-12 h-12 text-black" />
-                  </div>
-                </div>
+                <UpiPaymentTerminal 
+                  amount={grandTotal} 
+                  onPaymentSuccess={handleCompletePayment} 
+                />
               )}
 
               {/* Final Bill Breakdown */}

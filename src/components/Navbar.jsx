@@ -34,7 +34,10 @@ const Navbar = () => {
     currency,
     setCurrency,
     isAudioPlaying,
-    toggleAudio
+    toggleAudio,
+    setIsVipModalOpen,
+    setIsStargazingModalOpen,
+    playConciergeBellSound
   } = useResort();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -159,6 +162,19 @@ const Navbar = () => {
                 <span>{totalFoodItems}</span>
               </button>
             )}
+
+            {/* VIP Privilege Pass Trigger */}
+            <button
+              onClick={() => {
+                playConciergeBellSound();
+                setIsVipModalOpen(true);
+              }}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 text-amber-300 border border-amber-500/40 hover:border-amber-400 hover:bg-amber-500/20 transition-all cursor-pointer shadow-sm hover:scale-105"
+              title="Nilgiri Mist VIP Privilege Pass"
+            >
+              <Crown className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+              <span className="hidden md:inline">{t.navVip || 'VIP Pass'}</span>
+            </button>
 
             {/* User Profile or Login Trigger */}
             {currentUser ? (
@@ -310,6 +326,30 @@ const Navbar = () => {
                     )}
                   </a>
                 ))}
+
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    playConciergeBellSound();
+                    setIsVipModalOpen(true);
+                  }}
+                  className="flex items-center gap-2 text-amber-300 py-2.5 font-bold text-xs uppercase tracking-wider"
+                >
+                  <Crown className="w-4 h-4 text-amber-300 fill-amber-300" />
+                  <span>{t.navVip || 'VIP Privilege Pass'}</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    playConciergeBellSound();
+                    setIsStargazingModalOpen(true);
+                  }}
+                  className="flex items-center gap-2 text-indigo-300 py-2.5 font-bold text-xs uppercase tracking-wider"
+                >
+                  <span className="text-base">🔭</span>
+                  <span>{t.navStargazing || 'Sky Observatory'}</span>
+                </button>
 
                 <button
                   onClick={() => {

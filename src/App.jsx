@@ -22,6 +22,9 @@ import AdminDashboard from './components/AdminDashboard';
 import InvoiceModal from './components/InvoiceModal';
 import AiConciergeModal from './components/AiConciergeModal';
 import PwaInstallPrompt from './components/PwaInstallPrompt';
+import SocialProofTicker from './components/SocialProofTicker';
+import VipLoyaltyModal from './components/VipLoyaltyModal';
+import StargazingRadarModal from './components/StargazingRadarModal';
 import './App.css';
 
 function MainResortApp() {
@@ -104,6 +107,9 @@ function MainResortApp() {
       <DiningCartDrawer />
       <InvoiceModal />
       <AiConciergeModal />
+      <VipLoyaltyModal />
+      <StargazingRadarModal />
+      <SocialProofTicker />
       <PwaInstallPrompt />
       <AuthModal />
       <NotificationToast />

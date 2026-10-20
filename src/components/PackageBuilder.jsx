@@ -3,6 +3,7 @@ import { useResort } from '../context/ResortContext';
 import { RESORT_ROOMS, RESORT_EXPERIENCES, RESORT_SPA, ADD_ONS } from '../data/resortData';
 import confetti from 'canvas-confetti';
 import { printResortBill } from '../utils/printBill';
+import UpiPaymentTerminal from './UpiPaymentTerminal';
 import { 
   Sparkles, 
   PackageCheck, 
@@ -39,7 +40,8 @@ const PackageBuilder = () => {
     addBooking, 
     showToast, 
     setSelectedInvoiceBooking,
-    searchQuery 
+    searchQuery,
+    playPaymentSuccessSound 
   } = useResort();
 
   // Active step / tab in the builder: 'villa' | 'excursions' | 'spa' | 'perks'
@@ -205,6 +207,7 @@ const PackageBuilder = () => {
     setConfirmedBookingData(bookingObject);
     addBooking(bookingObject);
     setIsSuccess(true);
+    playPaymentSuccessSound();
 
     try {
       confetti({
@@ -1030,6 +1033,14 @@ const PackageBuilder = () => {
                       </button>
                     </div>
                   </div>
+
+                  {/* Real-Time Dynamic UPI Terminal */}
+                  {guestForm.paymentMethod === 'upi' && (
+                    <UpiPaymentTerminal
+                      amount={finalComboTotal}
+                      onPaymentSuccess={handleConfirmPackageBooking}
+                    />
+                  )}
                 </div>
 
                 <button

@@ -1,24 +1,28 @@
 import React from 'react';
 import { useResort } from '../context/ResortContext';
 import WeatherWidget from './WeatherWidget';
+import AtmosphereBar from './AtmosphereBar';
+import { ATMOSPHERE_PRESETS } from '../data/resortData';
 import { Compass, Sparkles, ChevronDown, Award, Play } from 'lucide-react';
 
 const Hero = () => {
-  const { lang, t } = useResort();
+  const { lang, t, atmosphere } = useResort();
+
+  const currentPreset = ATMOSPHERE_PRESETS[atmosphere] || ATMOSPHERE_PRESETS.day;
 
   return (
-    <div className="relative min-h-[92vh] flex flex-col justify-between pt-28 pb-20 overflow-hidden">
+    <div className="relative min-h-[95vh] flex flex-col justify-between pt-28 pb-16 overflow-hidden">
       
-      {/* Background Image with Cinematic Overlay */}
+      {/* Background Image with Cinematic Overlay & Atmosphere Switcher */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85"
+          key={atmosphere}
+          src={currentPreset.bgImage}
           alt="Nilgiri Mountain Tea Estate Ooty"
-          className="w-full h-full object-cover scale-105 animate-pulse duration-1000"
-          style={{ animationDuration: '8s' }}
+          className="w-full h-full object-cover scale-105 animate-fade-in transition-all duration-1000"
         />
-        {/* Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1612] via-[#0b1612]/60 to-black/70" />
+        {/* Dynamic Gradients based on atmosphere mode */}
+        <div className={`absolute inset-0 bg-gradient-to-t ${currentPreset.accent} to-black/80 transition-all duration-1000`} />
         <div className="absolute inset-0 bg-radial-gradient from-transparent to-[#0b1612]/80" />
         {/* Animated Mist Simulation */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-emerald-950/20 to-transparent animate-mist pointer-events-none" />
@@ -119,8 +123,11 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Nilgiri 24-Hour Atmosphere & Mood Switcher Bar */}
+      <AtmosphereBar />
+
       {/* Down Scroll Arrow */}
-      <div className="relative z-10 flex justify-center text-stone-400 text-xs">
+      <div className="relative z-10 flex justify-center text-stone-400 text-xs mt-3">
         <a 
           href="#villas"
           className="flex flex-col items-center gap-1 hover:text-emerald-300 transition-colors"

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { TRANSLATIONS, RESORT_ROOMS } from '../data/resortData';
-import { startMountainAmbience, stopMountainAmbience } from '../utils/audioEngine';
+import { TRANSLATIONS, RESORT_ROOMS, ATMOSPHERE_PRESETS } from '../data/resortData';
+import { startMountainAmbience, stopMountainAmbience, setAmbienceMode, playConciergeBell, playPaymentSuccessChime } from '../utils/audioEngine';
 import { printResortBill } from '../utils/printBill';
 
 const ResortContext = createContext();
@@ -25,6 +25,13 @@ export const ResortProvider = ({ children }) => {
 
   // Soundscape
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
+  // Nilgiri 24-Hour Atmosphere Engine: 'dawn' | 'day' | 'sunset' | 'night'
+  const [atmosphere, setAtmosphere] = useState('day');
+
+  // Next-Level Modals: VIP Privilege Pass & Stargazing Observatory
+  const [isVipModalOpen, setIsVipModalOpen] = useState(false);
+  const [isStargazingModalOpen, setIsStargazingModalOpen] = useState(false);
 
   // Search parameters for booking
   const [searchQuery, setSearchQuery] = useState({
@@ -196,12 +203,36 @@ export const ResortProvider = ({ children }) => {
       setIsAudioPlaying(false);
       showToast("Mountain Forest Sound Muted");
     } else {
-      const started = startMountainAmbience();
+      const started = startMountainAmbience(atmosphere);
       if (started) {
         setIsAudioPlaying(true);
         showToast("Playing Nilgiri Pine Forest & Breeze Ambience 🌲");
       }
     }
+  };
+
+  // Change 24h Nilgiri Mountain Atmosphere
+  const changeAtmosphere = (newMode) => {
+    setAtmosphere(newMode);
+    if (isAudioPlaying) {
+      setAmbienceMode(newMode);
+    }
+    const preset = ATMOSPHERE_PRESETS[newMode];
+    if (preset) {
+      showToast(
+        lang === 'ta'
+          ? `${preset.nameTa} (${preset.time}) - ${preset.skyConditionTa}`
+          : `${preset.name} (${preset.time}) - ${preset.skyCondition}`
+      );
+    }
+  };
+
+  const playConciergeBellSound = () => {
+    playConciergeBell();
+  };
+
+  const playPaymentSuccessSound = () => {
+    playPaymentSuccessChime();
   };
 
   // Authentication Helpers
@@ -401,6 +432,15 @@ export const ResortProvider = ({ children }) => {
       selectedInvoiceBooking,
       setSelectedInvoiceBooking,
       printResortBill,
+      atmosphere,
+      setAtmosphere,
+      changeAtmosphere,
+      isVipModalOpen,
+      setIsVipModalOpen,
+      isStargazingModalOpen,
+      setIsStargazingModalOpen,
+      playConciergeBellSound,
+      playPaymentSuccessSound,
       toast,
       showToast
     }}>

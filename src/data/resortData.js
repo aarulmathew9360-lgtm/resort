@@ -15,6 +15,8 @@ export const TRANSLATIONS = {
     navDining: "Fine Dining",
     navGuide: "Ooty Guide",
     navBookings: "My Bookings",
+    navVip: "VIP Privilege Pass",
+    navStargazing: "Sky Observatory",
     weatherTitle: "Live Ooty Mountain Climate",
     tempLabel: "7,400 ft Altitude",
     roomsHeading: "Sanctuaries of Solitude",
@@ -50,6 +52,8 @@ export const TRANSLATIONS = {
     navDining: "உணவு & ரெஸ்டாரன்ட்",
     navGuide: "ஊட்டி வழிகாட்டி",
     navBookings: "என் முன்பதிவுகள்",
+    navVip: "விஐபி கிளப் பாஸ்",
+    navStargazing: "வான்நோக்கி மையம்",
     weatherTitle: "ஊட்டி தற்போதைய மலைக் காலநிலை",
     tempLabel: "7,400 அடி உயரம்",
     roomsHeading: "இயற்கை எழில் கொஞ்சும் தங்கும் அறைகள்",
@@ -576,3 +580,117 @@ export const OOTY_TRAVEL_TIPS = [
     icon: "mountain"
   }
 ];
+
+export const ATMOSPHERE_PRESETS = {
+  dawn: {
+    id: "dawn",
+    name: "Dawn Mist",
+    nameTa: "விடியல் பனி",
+    time: "6:00 AM",
+    temp: "10°C",
+    skyCondition: "Crisp Sunrise & Shola Forest Dew",
+    skyConditionTa: "விடியற்காலை பனித்துளி & மேகக் கடல்",
+    humidity: "92%",
+    aqi: "12 AQI (Ultra-Pure)",
+    bgImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=2000&q=85",
+    accent: "from-pink-950/40 via-indigo-950/50 to-[#07130e]",
+    icon: "sunrise",
+    badge: "🌅 Sunrise Inversion Active"
+  },
+  day: {
+    id: "day",
+    name: "Mountain Sun",
+    nameTa: "பகல் சூரியன்",
+    time: "12:00 PM",
+    temp: "19°C",
+    skyCondition: "Crystal Mountain Sunshine",
+    skyConditionTa: "பிரகாசமான மலை வெயில் & தூய காற்று",
+    humidity: "64%",
+    aqi: "14 AQI (Pristine)",
+    bgImage: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85",
+    accent: "from-emerald-950/30 via-teal-950/40 to-[#08120e]",
+    icon: "sun",
+    badge: "☀️ High Mountain Visibility"
+  },
+  sunset: {
+    id: "sunset",
+    name: "Golden Hour",
+    nameTa: "பொன்மாலை",
+    time: "5:30 PM",
+    temp: "14°C",
+    skyCondition: "Amber Ridge & Pine Twilight",
+    skyConditionTa: "தங்க நிற மாலை & பைன் மர பனிமூட்டம்",
+    humidity: "78%",
+    aqi: "15 AQI (Pure)",
+    bgImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85",
+    accent: "from-amber-950/40 via-orange-950/30 to-[#091510]",
+    icon: "sunset",
+    badge: "🌄 Golden Valley Sunset"
+  },
+  night: {
+    id: "night",
+    name: "Starlit Midnight",
+    nameTa: "விண்மீன் இரவு",
+    time: "9:00 PM",
+    temp: "8°C",
+    skyCondition: "Starlit Sky & Fireplace Embers",
+    skyConditionTa: "விண்மீன் வானம் & ஃபயர்பிளேஸ் குளிர்",
+    humidity: "86%",
+    aqi: "10 AQI (Crisp)",
+    bgImage: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=2000&q=85",
+    accent: "from-indigo-950/50 via-purple-950/30 to-[#040806]",
+    icon: "moon",
+    badge: "🌌 Bortle Class-2 Stargazing Active"
+  }
+};
+
+export const STARGAZING_DATA = {
+  moonPhase: "Waxing Gibbous",
+  moonPhaseTa: "வளர்பிறை நிலவு",
+  illumination: "84%",
+  bortleScale: "Class 2 (Pristine Dark Sky)",
+  cloudInversionProb: "88% Expected at Dawn (6:15 AM)",
+  visibleConstellations: ["Orion (Hunter)", "Pleiades (Seven Sisters)", "Sirius (Alpha Dog Star)", "Taurus"],
+  telescopeEquipment: "Celestron NexStar 8SE Computerized Schmidt-Cassegrain (Resort Ridge Observatory)",
+  astronomerGuide: "Session led by Resident Naturalist Anand every evening at 8:00 PM"
+};
+
+export const SOCIAL_PROOF_FEED = [
+  {
+    id: "sp-1",
+    guest: "Dr. Annamalai",
+    location: "Coimbatore",
+    action: "reserved Colonial Governor's Teakwood Suite",
+    actionTa: "கொலோனியல் தேக்குமர சூட் முன்பதிவு செய்தார்",
+    time: "3 mins ago",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+  },
+  {
+    id: "sp-2",
+    guest: "Priya & Siddharth",
+    location: "Bengaluru",
+    action: "booked The Cloud-Mist Glasshouse Chalet for Nov 12",
+    actionTa: "கிளாஸ்ஹவுஸ் வில்லாவை நவம்பர் 12-க்கு புக் செய்தனர்",
+    time: "6 mins ago",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+  },
+  {
+    id: "sp-3",
+    guest: "Elena Rostova",
+    location: "London, UK",
+    action: "added Heritage Toy Train UNESCO Car to custom stay",
+    actionTa: "பாரம்பரிய மலை ரயில் சலூன் காரை சேர்த்தார்",
+    time: "11 mins ago",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+  },
+  {
+    id: "sp-4",
+    guest: "Raghavan S.",
+    location: "Chennai",
+    action: "ordered Wood-Fired Wild Truffle Pizza & High Tea Tower",
+    actionTa: "டிரஃபிள் பீட்சா மற்றும் ஹை-டீ ஆர்டர் செய்தார்",
+    time: "15 mins ago",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+  }
+];
+
